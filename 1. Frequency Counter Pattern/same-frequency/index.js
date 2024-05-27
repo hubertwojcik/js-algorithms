@@ -1,14 +1,21 @@
-function areThereDuplicates(...args) {
-  const array = [...args];
-  const lookup = {};
+function sameFrequency(num1, num2) {
+  let strNum1 = num1.toString();
+  let strNum2 = num2.toString();
+  if (strNum1.length !== strNum2.length) return false;
 
-  for (const key of array) {
-    if (lookup[key]) return true;
-    lookup[key] = 1;
+  let firstNumCount = {};
+  let secondNumCount = {};
+
+  for (const str of strNum1) {
+    firstNumCount[str] = (firstNumCount[str] || 0) + 1;
   }
-  return false;
-}
+  for (const str of strNum2) {
+    secondNumCount[str] = (secondNumCount[str] || 0) + 1;
+  }
 
-console.log(areThereDuplicates(1, 2, 3)); // false
-console.log(areThereDuplicates(1, 2, 2)); // true
-console.log(areThereDuplicates("a", "b", "c", "a")); // true
+  for (let key in firstNumCount) {
+    if (firstNumCount[key] !== secondNumCount[key]) return false;
+  }
+
+  return true;
+}
