@@ -1,16 +1,15 @@
 function maxSubarraySum(array, count) {
-  let maxSum = 0;
-  let tempSum = 0;
-  if (array.length < count) return null;
-
-  for (let i = 0; i < num; i++) {
+  let maxSum;
+  let tempSum;
+//SUMA PIERWSZYCH N ELEMENTOW
+  for (let i = 0; i < count; i++) {
     maxSum += array[i];
   }
-  tempSum = maxSum;
-
-  for (let i = num; i < array.length; i++) {
-    tempSum = tempSum - array[i - num] + arr[i];
-    maxSum = Math.max(maxSum, tempSum);
+  tempSum=maxSum;
+  for(let i =num;i<array.length;i++){
+    tempSum=tempSum-array[i-num]+array[i];
+    maxSum=Math.max(tempSum,maxSum)
   }
-  return maxSum;
+
+  return maxSubarraySum,
 }
